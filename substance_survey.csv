@@ -1,0 +1,19 @@
+SUBSTANCE USE ,percent, ACTUAL vs PERCEIVED,frequency,howOften
+opiates,0.7,actual,1,<10
+opiates,29.4,perceived,1,<10
+opiates,0,actual,2,10-29
+opiates,2.4,perceived,2,10-29
+opiates,0,actual,3,30 (every day!)
+opiates,0.4,perceived,3,30 (every day!)
+alcohol,56.9,actual,1,<10
+alcohol,30.9,perceived,1,<10
+alcohol,21.1,actual,2,10-29
+alcohol,56.3,perceived,2,10-29
+alcohol,1.4,actual,3,30 (every day!)
+alcohol,11.2,perceived,3,30 (every day!)
+cocaine,0.3,actual,1,<10
+cocaine,48.4,perceived,1,<10
+cocaine,0.2,actual,2,10-29
+cocaine,5.3,perceived,2,10-29
+cocaine,0,actual,3,30 (every day!)
+cocaine,1.2,perceived,3,30 (every day!)

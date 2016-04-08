@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
+</head>
+<div id="chartContainer">
+  <script type="text/javascript">
+// ok this function needed to be up near the top. 
+// http://dimplejs.org/advanced_examples_viewer.html?id=advanced_bullet
+// This is a custom algorithm to lighten the passed color, I find I can't
+// get the results I want from the d3.rgb.brighter method. 
+      function lighten(color, pct) {
+        return d3.rgb(
+                d3.rgb(color).r + pct * (255 - d3.rgb(color).r),
+                d3.rgb(color).g + pct * (255 - d3.rgb(color).g),
+                d3.rgb(color).b + pct * (255 - d3.rgb(color).b)
+            );
+    }
+
+    var svg = dimple.newSvg("#chartContainer", 590, 400);
+    d3.csv("substance_survey.csv", function (data) {
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(60, 45, 510, 315)
+      myChart.addCategoryAxis("x",["SUBSTANCE USE "," ACTUAL vs PERCEIVED"]);
+      myChart.addMeasureAxis("y", "percent");
+      myChart.addSeries(["howOften"], dimple.plot.bar);
+      // Define a custom color palette.  
+      myChart.defaultColors = [
+          new dimple.color("#2ecc71", "#27ae60", 1), // green
+          new dimple.color("#9b59b6", "#8e44ad", 1), // purple
+          new dimple.color("#e67e22", "#d35400", 1), // orange
+      ];
+      myChart.addLegend(200, 10, 380, 20, "right");
+      myChart.draw();
+// That's what!! use developer mode to work out the code to get to the shapes and find it!
+      d3.selectAll(".dimple-perceived").style("opacity", .4); // the dot!! it needed the dot!
+      svg.selectAll("title_text")
+        .data(["How often did they use over 30 days?  :"])
+        .enter()
+        .append("text")
+          .attr("x", 90)
+          .attr("y", 17)
+          .style("font-family", "sans-serif")
+          .style("font-size", "10px")
+          .style("color", "Black")
+          .text(function (d) { return d; });
+    });
+    // references consulted : 
+    // http://stackoverflow.com/questions/30149773/dimple-js-assign-colour-to-bar-when-series-is-null
+    // http://stackoverflow.com/questions/15588984/d3-rgb-darker-brighter
+    // http://www.d3noob.org/2014/02/styles-in-d3js.html
+    // http://stackoverflow.com/questions/17435838/how-to-use-d3-selectall-with-multiple-class-names
+    // http://dimplejs.org/advanced_examples_viewer.html?id=advanced_custom_styling
+    // http://dimplejs.org/advanced_examples_viewer.html?id=advanced_interactive_legends
+  </script>
+</div>
+</html>
+
+
