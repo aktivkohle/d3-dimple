@@ -6,18 +6,6 @@
 </head>
 <div id="chartContainer">
   <script type="text/javascript">
-// ok this function needed to be up near the top. 
-// http://dimplejs.org/advanced_examples_viewer.html?id=advanced_bullet
-// This is a custom algorithm to lighten the passed color, I find I can't
-// get the results I want from the d3.rgb.brighter method. 
-      function lighten(color, pct) {
-        return d3.rgb(
-                d3.rgb(color).r + pct * (255 - d3.rgb(color).r),
-                d3.rgb(color).g + pct * (255 - d3.rgb(color).g),
-                d3.rgb(color).b + pct * (255 - d3.rgb(color).b)
-            );
-    }
-
     var svg = dimple.newSvg("#chartContainer", 590, 400);
     d3.csv("substance_survey.csv", function (data) {
       var myChart = new dimple.chart(svg, data);
@@ -54,6 +42,7 @@
     // http://stackoverflow.com/questions/17435838/how-to-use-d3-selectall-with-multiple-class-names
     // http://dimplejs.org/advanced_examples_viewer.html?id=advanced_custom_styling
     // http://dimplejs.org/advanced_examples_viewer.html?id=advanced_interactive_legends
+    // http://dimplejs.org/advanced_examples_viewer.html?id=advanced_bullet
   </script>
 </div>
 </html>
