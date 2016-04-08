@@ -6,10 +6,10 @@
 </head>
 <div id="chartContainer">
   <script type="text/javascript">
-    var svg = dimple.newSvg("#chartContainer", 590, 400);
+    var svg = dimple.newSvg("#chartContainer", 890, 800);
     d3.csv("substance_survey.csv", function (data) {
       var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(60, 45, 510, 315)
+      myChart.setBounds(60, 45, 810, 615)
       myChart.addCategoryAxis("x",["SUBSTANCE USE "," ACTUAL vs PERCEIVED"]);
       myChart.addMeasureAxis("y", "percent");
       myChart.addSeries(["howOften"], dimple.plot.bar);
@@ -22,7 +22,7 @@
       myChart.addLegend(200, 10, 380, 20, "right");
       myChart.draw();
 // Use developer mode in Chrome to work out the code to get to the shapes and find it!
-      d3.selectAll(".dimple-perceived").style("opacity", .4); // the dot!! it needed the dot!
+      d3.selectAll(".dimple-perceived").style("opacity", .15); // the dot!! it needed the dot!
       svg.selectAll("title_text")
         .data(["How often did they use over 30 days?  :"])
         .enter()
