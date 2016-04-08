@@ -33,7 +33,7 @@
       ];
       myChart.addLegend(200, 10, 380, 20, "right");
       myChart.draw();
-// That's what!! use developer mode to work out the code to get to the shapes and find it!
+// Use developer mode in Chrome to work out the code to get to the shapes and find it!
       d3.selectAll(".dimple-perceived").style("opacity", .4); // the dot!! it needed the dot!
       svg.selectAll("title_text")
         .data(["How often did they use over 30 days?  :"])
@@ -46,6 +46,7 @@
           .style("color", "Black")
           .text(function (d) { return d; });
     });
+    
     // references consulted : 
     // http://stackoverflow.com/questions/30149773/dimple-js-assign-colour-to-bar-when-series-is-null
     // http://stackoverflow.com/questions/15588984/d3-rgb-darker-brighter
