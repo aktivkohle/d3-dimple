@@ -6,10 +6,10 @@
 </head>
 <div id="chartContainer">
   <script type="text/javascript">
-    var svg = dimple.newSvg("#chartContainer", 890, 800);
+    var svg = dimple.newSvg("#chartContainer", 890, 700);
     d3.csv("substance_survey.csv", function (data) {
       var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(60, 45, 810, 615)
+      myChart.setBounds(90, 45, 810, 515)
       myChart.addCategoryAxis("x",["SUBSTANCE USE "," ACTUAL vs PERCEIVED"]);
       myChart.addMeasureAxis("y", "percent");
       myChart.addSeries(["howOften"], dimple.plot.bar);
@@ -43,6 +43,7 @@
     // http://dimplejs.org/advanced_examples_viewer.html?id=advanced_custom_styling
     // http://dimplejs.org/advanced_examples_viewer.html?id=advanced_interactive_legends
     // http://dimplejs.org/advanced_examples_viewer.html?id=advanced_bullet
+    // https://github.com/PMSI-AlignAlytics/dimple/wiki/dimple.chart#setBounds
   </script>
 </div>
 </html>
